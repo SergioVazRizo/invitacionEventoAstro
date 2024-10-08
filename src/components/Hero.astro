@@ -1,20 +1,21 @@
 ---
+import Meteors from './Meteors.astro';
 const confirmUrl = "https://api.whatsapp.com/send?phone=524771061137&text=Confirmo%20mi%20asistencia%20a%20la%20cena%20mi%20nombre%20es:";
 ---
 
-<section class="hero">
-  <div class="hero-content">
+<section class="hero relative overflow-hidden">
+  <div class="hero-content relative z-10">
     <h1>Cena Bosque Mágico</h1>
     <p>Una experiencia culinaria única en un entorno encantado</p>
     <p>10 de octubre de 2024</p>
     <a href={confirmUrl} class="btn-confirm">Confirmar asistencia aquí!</a>
-
   </div>
+  <Meteors number={30} />
 </section>
 
 <style>
   .hero {
-    background-image: url('/public/fondo.webp');
+    /* background-image: url('/public/fondo.webp'); */ 
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -23,12 +24,15 @@ const confirmUrl = "https://api.whatsapp.com/send?phone=524771061137&text=Confir
     justify-content: center;
     text-align: center;
     color: #fff;
+    position: relative;
+    overflow: hidden;
   }
 
   .hero-content {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 1rem;
     border-radius: 8px;
+    z-index: 10;
   }
 
   h1 {
