@@ -1,66 +1,67 @@
 ---
+interface MenuItem {
+  tipo: string;
+  descripcion: string;
+}
+
+const menuItems: MenuItem[] = [
+  { tipo: "Entrada", descripcion: "Ensalada de hojas del bosque" },
+  { tipo: "Plato principal", descripcion: "Solomillo de ciervo con salsa de bayas silvestres" },
+  { tipo: "Postre", descripcion: "Tarta de moras con helado de lavanda" }
+];
 ---
 
-<section class="card menu-card">
-    <h2>Menú del Evento</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Entrada</th>
-          <th>Plato Fuerte</th>
-          <th>Postre</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Ensalada</td>
-          <td>Filete de salmón con puré de papa</td>
-          <td>Tarta de frutas</td>
-        </tr>
-        <tr>
-          <td>Bruschetta de tomate y albahaca</td>
-          <td>Pasta al pesto con verduras</td>
-          <td>Brownie de chocolate</td>
-        </tr>
-        <tr>
-          <td>Sopa de calabaza</td>
-          <td>Pechuga de pollo rellena</td>
-          <td>Mousse de limón</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-  
-  <style>
-    .card {
-      background-color: #E5E6E6;
-      border-radius: 20px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      padding: 2rem;
-      text-align: center;
-      margin: 2rem;
-      width: 90%;
+<div class="menu-card">
+  <h2>Nuestro Menú</h2>
+  <ul>
+    {menuItems.map(({ tipo, descripcion }) => (
+      <li>
+        <strong>{tipo}:</strong> {descripcion}
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .menu-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    color: #ddd;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  @media (min-width: 768px) {
+    .menu-card {
+      padding: 1.5rem;
     }
-  
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
+
+    h2 {
+      font-size: 1.75rem;
     }
-  
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: center;
+
+    li {
+      font-size: 1rem;
     }
-  
-    th {
-      background-color: #ff9900;
-      color: white;
-    }
-  
-    tr:hover {
-      background-color: rgba(255, 255, 0, 0.1);
-    }
-  </style>
-  
+  }
+
+  li strong {
+    color: #fff;
+  }
+</style>

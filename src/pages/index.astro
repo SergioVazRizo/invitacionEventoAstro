@@ -9,18 +9,50 @@ import MapCard from '../components/MapCard.astro';
     <title>Cena Bosque Mágico</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      body {
-        background-color: #1F1F20;
-        overflow: auto;
-      }
-    </style>
+    <link rel="stylesheet" href="/styles/global.css">
   </head>
   <body>
     <Hero />
-    <main>
+    <main class="container">
       <MenuCard />
       <MapCard />
     </main>
   </body>
 </html>
+
+<style>
+  :root {
+    --padding-container: 1rem;
+  }
+
+  body {
+    background-color: rgba(30, 30, 30, 0.8);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--padding-container);
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 480px) {
+    :root {
+      --padding-container: 1.5rem;
+    }
+    body {
+      font-size: 18px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 800px;
+    }
+  }
+</style>
